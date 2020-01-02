@@ -1,6 +1,5 @@
 function EncontrarNumeros()
 {
-    debugger;
   var CajaTexto=document.getElementById("TxtBox");
   var BotonAdivinar=document.getElementById("Btnadivinar");
   var Resultado=document.getElementById("respuesta");
