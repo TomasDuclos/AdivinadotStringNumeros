@@ -92,5 +92,7 @@ function CrearObjetosNumeros()//retorna array de objetos
     
      arrayObjetos[index]=Objnumero;
   }
+  //hola ciomo eaijhisajdfljdslfds
   return arrayObjetos;
+
 }
