@@ -3,45 +3,29 @@ function EncontrarNumeros()
   var CajaTexto=document.getElementById("TxtBox");
   var BotonAdivinar=document.getElementById("Btnadivinar");
   var Resultado=document.getElementById("respuesta");
-  var Numero1="";
-  var Numero2="";
-
+  
+  
+  //se van a retornar los numeros que se hayan encontrado
   BotonAdivinar.onclick=function(e)
   {
+    var NumerosEncontrados=new Array;
     if(CajaTexto.value!="")
     {
       var StringDesordenado=CajaTexto.value;   
       var ObjectsNumeros=CrearObjetosNumeros();//ya tengo los objetos numeros creados
-      var encontrados1=false;
-      var encontrados2=false;
-      var indice1=0;
-      var indice2=0;
-      do
-      {          
-        var retorno=VerificarExistencia(StringDesordenado,ObjectsNumeros[indice1].Numero);
+      for (let index = 0; index < ObjectsNumeros.length; index++) 
+      {
+        var retorno=VerificarExistencia(StringDesordenado,ObjectsNumeros[index].Numero);
         if (retorno[0]) 
-        {
-            encontrados1=retorno[0];           
-            Numero1=ObjectsNumeros[indice1].Numero;
-            ObjectsNumeros.splice(indice1,1)
-            var stringSinNo1=retorno[1];
-            while(encontrados2==false)
-            {
-                retorno=VerificarExistencia(stringSinNo1,ObjectsNumeros[indice2].Numero);
-                if (retorno[0])
-                {
-                    Numero2=ObjectsNumeros[indice2].Numero;
-                    encontrados2=true;
-                }
-                indice2++;
-            }                    
-        }
-        indice1++;
-      }while(encontrados1==false && encontrados2==false);      
+        {   
+            var numero=ObjectsNumeros[index].Numero;
+            NumerosEncontrados.push(numero);                 
+            StringDesordenado=retorno[1];       
+        }      
+      }    
     }
-    var resultadostring=Numero1+"---"+Numero2;
     Resultado.innerText ="";
-    Resultado.innerText =resultadostring;
+    Resultado.innerText =NumerosEncontrados;
   }
   
 }
@@ -78,7 +62,7 @@ function CrearObjetosNumeros()//retorna array de objetos
 {
   
   let arrayObjetos=new Array(10);
-  var ArrayNumeros=["zero","one","two","three","four","five","six","seven","eight","nine"];
+  var ArrayNumeros=["zero","two","four","five","six","seven","eight","nine","three","one"];
   for (let index = 0; index < 10; index++) 
   {
     
