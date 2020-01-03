@@ -79,7 +79,7 @@ function CrearObjetosNumeros()//retorna array de objetos
 {
   
   let arrayObjetos=new Array(10);
-  var ArrayNumeros=["zero","one","two","three","four","five","six","seven","eight","nine"];
+  var ArrayNumeros=["zero","two","three","four","five","six","seven","eight","nine","one"];
   for (let index = 0; index < 10; index++) 
   {
     
