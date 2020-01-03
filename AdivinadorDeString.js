@@ -40,6 +40,8 @@ function EncontrarNumeros()
         indice1++;
       }while(encontrados1==false && encontrados2==false);      
     }
+    //string donde estaran los resultados
+    //nuevo camnio otro comitt
     var resultadostring=Numero1+"---"+Numero2;
     Resultado.innerText ="";
     Resultado.innerText =resultadostring;
